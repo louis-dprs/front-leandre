@@ -29,14 +29,6 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://localhost:5253/api/",
     },
-    // OIDC session runtime config (server-side)
-    oidc: {
-      session: {
-        cookie: {
-          secure: false
-        }
-      }
-    },
   },
 
   // OIDC Configuration
