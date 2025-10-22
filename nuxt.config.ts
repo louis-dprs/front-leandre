@@ -29,19 +29,19 @@ export default defineNuxtConfig({
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://localhost:5253/api/",
     },
+    // OIDC session runtime config (server-side)
+    oidc: {
+      session: {
+        cookie: {
+          secure: false
+        }
+      }
+    },
   },
 
   // OIDC Configuration
   oidc: {
     defaultProvider: "keycloak",
-    // session configuration: override cookie options (e.g. disable 'secure' for local dev)
-    session: {
-      // set cookie.secure to false so cookie is not marked Secure (useful for http://localhost)
-      cookie: {
-        secure: false
-      }
-      // password/session secret is expected to be provided via env: NUXT_OIDC_SESSION_SECRET
-    },
     middleware: {
       globalMiddlewareEnabled: false,
       customLoginPage: false,
