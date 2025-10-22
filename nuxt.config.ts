@@ -34,6 +34,14 @@ export default defineNuxtConfig({
   // OIDC Configuration
   oidc: {
     defaultProvider: "keycloak",
+    // session configuration: override cookie options (e.g. disable 'secure' for local dev)
+    session: {
+      // set cookie.secure to false so cookie is not marked Secure (useful for http://localhost)
+      cookie: {
+        secure: false
+      }
+      // password/session secret is expected to be provided via env: NUXT_OIDC_SESSION_SECRET
+    },
     middleware: {
       globalMiddlewareEnabled: false,
       customLoginPage: false,
